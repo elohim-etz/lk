@@ -50,7 +50,7 @@ DEFINES += \
         ARM_WITH_THUMB2=1 \
         ARM_WITH_CACHE=1 \
         ARM_WITH_L2=1
-CFLAGS += -mcpu=cortex-a9
+CFLAGS += -march=armv7-a -mtune=cortex-a7
 #CFLAGS += -mcpu=arm1136jf-s # compiler doesn't understand cortex yet
 HANDLED_CORE := true
 #CFLAGS += -mfpu=vfp -mfloat-abi=softfp

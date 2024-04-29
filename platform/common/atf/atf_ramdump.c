@@ -130,7 +130,8 @@ void atf_log_init(void)
 #ifdef MTK_SMC_ID_MGMT
 	atf_log_buf_addr = mt_secure_call_ret3(smc_id, 0, 0, 0, 0, &atf_log_buf_size, &atf_crash_flag_addr);
 #else
-	__asm__ volatile("mov r0, %[smcid]\n"
+	__asm__ volatile(".arch_extension sec\n"
+			"mov r0, %[smcid]\n"
 			"smc #0x0\n"
 			"mov %[addr], r0\n"
 			"mov %[size], r1\n"

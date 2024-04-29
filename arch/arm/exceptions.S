@@ -22,6 +22,8 @@
  */
 #include <asm.h>
 
+.arch_extension sec
+
 FUNCTION(arm_undefined)
 	stmfd 	sp!, { r0-r12, r14 }
 	sub		sp, sp, #12
