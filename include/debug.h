@@ -33,11 +33,7 @@
 extern "C" {
 #endif
 
-#if defined(DEBUG)
-#define DEBUGLEVEL DEBUG
-#else
-#define DEBUGLEVEL 2
-#endif
+#define DEBUGLEVEL 0
 
 /* debug levels */
 #define CRITICAL 0
@@ -51,11 +47,17 @@ int _dputs(const char *str);
 int _dprintf(const char *fmt, ...) __PRINTFLIKE(1, 2);
 int _dvprintf(const char *fmt, va_list ap);
 
+#if DEBUGLEVEL
 #define dputc(level, str) do { if ((level) <= DEBUGLEVEL) { _dputc(str); } } while (0)
 #define dputs(level, str) do { if ((level) <= DEBUGLEVEL) { _dputs(str); } } while (0)
 #define dprintf(level, x...) do { if ((level) <= DEBUGLEVEL) { _dprintf(x); } } while (0)
 #define dvprintf(level, x...) do { if ((level) <= DEBUGLEVEL) { _dvprintf(x); } } while (0)
-
+#else
+#define dputc(level, str)
+#define dputs(level, str)
+#define dprintf(level, x...)
+#define dvprintf(level, x...)
+#endif
 /* input */
 int dgetc(char *c, bool wait);
 

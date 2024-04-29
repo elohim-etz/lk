@@ -259,4 +259,4 @@ MTK_RC_TO_VENDOR ?= yes
 
 LINKER_SCRIPT += $(BUILDDIR)/system-onesegment.ld
 
-CFG_LOG_STORE_SUPPORT := yes
+CFG_LOG_STORE_SUPPORT := no
