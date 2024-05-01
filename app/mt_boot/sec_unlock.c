@@ -350,6 +350,7 @@ void fastboot_oem_unlock(const char *arg, void *data, unsigned sz)
 	while (1) {
 		if (mtk_detect_key(MT65XX_MENU_SELECT_KEY)) { //VOL_UP
 			fastboot_info("Start unlock flow\n");
+#if 0
 			//Invoke security check after confirming "yes" by user
 			ret = fastboot_get_unlock_perm(&unlock_allowed);
 			if (ret != B_OK) {
@@ -371,7 +372,7 @@ void fastboot_oem_unlock(const char *arg, void *data, unsigned sz)
 				fastboot_fail(msg);
 				break;
 			}
-
+#endif
 			ret = fastboot_oem_unlock_chk();
 			if (ret != B_OK) {
 				sprintf(msg, "\nUnlock failed - Err:0x%x \n", ret);
