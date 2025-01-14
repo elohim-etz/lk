@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout sources
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Install pyhton2
       run: sudo apt-get install python2
     - name: Build the bootloader
@@ -19,7 +19,7 @@ jobs:
         export python=python2
         make X5
     - name : Upload bootloader
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: X5_lk-signed.img
         path: /home/runner/work/lk/lk/build-X5/lk-sign.img
