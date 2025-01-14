@@ -16,7 +16,7 @@ jobs:
       run: sudo apt-get install python3
     - name: Build the bootloader
       run: |
-        export python=python2
+        export python=python3
         make X5
     - name : Upload bootloader
       uses: actions/upload-artifact@v4
